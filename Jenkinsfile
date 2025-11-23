@@ -1,23 +1,27 @@
 pipeline {
     agent any
 
+    environment {
+        VERSION = '1.0.0'
+    }
+
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo "Building version ${VERSION}.."
             }
         }
         stage('Test') {
-           when {
+            when {
                 expression { params.executeTests == true }
-           }
-          steps {
+            }
+            steps {
                 echo 'Testing with conditions..'
-          }
+            }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying..'
+                echo "Deploying version ${VERSION}.."
             }
         }
     }
