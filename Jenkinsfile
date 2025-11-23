@@ -9,6 +9,10 @@ pipeline {
         VERSION = '1.0.0'
     }
 
+    parameters {
+        booleanParam(name: 'executeTests', defaultValue: true, description: 'Run tests stage')
+    }
+
     stages {
         stage('Build') {
             steps {
