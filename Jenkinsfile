@@ -18,4 +18,10 @@ pipeline {
             }
         }
     }
+
+    post {
+        always {
+            echo 'Pipeline Completed'
+        }
+    }
 }
